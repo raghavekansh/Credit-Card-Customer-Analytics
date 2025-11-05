@@ -74,7 +74,7 @@ Clusters were named as follows:
 
 | Cluster | Size | Avg Engagement | Churn % | Label |
 |----------|------|----------------|----------|--------|
-| 3 & 4 | ~3,800 | 83–92 | 3–6 | **Premium High-Value** |
+| 3 & 4 | 3,800 | 83–92 | 3–6 | **Premium High-Value** |
 | 2 | 2,127 | 39 | 12 | **Growing Mid-Tier** |
 | 0 | 2,767 | 38 | 35 | **Standard Active** |
 | 1 | 1,434 | 36 | 15 | **Low Engagement** |
