@@ -3,7 +3,7 @@
 🧩 Project Overview
 
 This project focuses on **analyzing credit card customer data** to uncover patterns in customer behavior, segment customers for targeted marketing, and predict churn risk using **machine learning**.  
-It combines **RFM segmentation, profitability analysis, clustering, and predictive modeling** to deliver actionable business insights.
+The goal is to help a bank identify **high-value, at-risk, and loyal customer segments** — and design actionable strategies for retention and revenue growth.  
 
 ## 🗂️ Dataset
 **Source:** Kaggle – Credit Card Customers Dataset  
@@ -17,22 +17,39 @@ It combines **RFM segmentation, profitability analysis, clustering, and predicti
   - `Total_Trans_Amt`, `Total_Trans_Ct`, `Credit_Limit`, `Avg_Utilization_Ratio`
   - `Attrition_Flag` (Target Variable → “Existing” or “Attrited”)
 ---
+## 🧩 Key Objectives
+- Perform **RFM (Recency, Frequency, Monetary)** and **K-Means** clustering to group customers.
+- Build a **Customer Lifetime Value (CLV)** model to measure long-term profitability.
+- Develop **Profitability Tiers (Platinum → Standard)** and estimate ROI by customer group.
+- Predict customer **churn risk using Random Forest** and identify key churn drivers.
+- Generate actionable insights through **interactive visualizations (Plotly)**.
 
-## ⚙️ Methodology Overview
-| Stage | Description |
-|--------|-------------|
-| **1. Data Cleaning** | Verified dataset integrity — no missing or duplicate values. |
-| **2. EDA (Exploratory Analysis)** | Analyzed demographics, card category, income, churn distribution. |
-| **3. Behavioral Analysis** | Compared transaction behavior and credit utilization between existing vs attrited customers. |
-| **4. Feature Engineering** | Created **Engagement Score**, `Avg_Transaction_Value`, and % utilization metrics. |
-| **5. RFM Segmentation** | Built Recency–Frequency–Monetary scores (1–4 scale) → 9 business segments. |
-| **6. Profitability Modeling** | Revenue = 1.5% of transaction spend; Cost = servicing + capital charge. |
-| **7. Churn & Retention Analytics** | Computed churn by segment and identified at-risk cohorts. |
-| **8. K-Means Clustering (Advanced Layer)** | Clustered customers (K=5, silhouette=0.20) → “Premium High-Value”, “Growing Mid-Tier”, etc. |
+## 🗂️ Project Workflow
+
+| Phase | Description | Tools Used |
+|-------|--------------|-------------|
+| **1. Data Setup** | Loaded and cleaned 10K+ customer records from Kaggle dataset | Pandas, NumPy |
+| **2. EDA & Visualization** | Analyzed demographics, card usage, and behavior metrics | Matplotlib, Seaborn, Plotly |
+| **3. Segmentation (RFM + Clustering)** | Grouped customers into 8 business segments (Loyal, At-Risk, etc.) | Scikit-learn (KMeans) |
+| **4. Predictive Modeling** | Built Random Forest model to predict attrition risk (AUC = 0.93) | Scikit-learn |
+| **5. CLV & Profitability Analysis** | Estimated revenue, cost, profit margin, and ROI per segment | Python, NumPy |
+| **6. Reporting & Export** | Created final processed dataset for dashboards and reporting | CSV Export, Plotly |
+
+---
+## 🧮 Data Summary
+
+| Metric | Value |
+|--------|--------|
+| Total Customers | 10,127 |
+| Features | 46 |
+| Attrition Rate | 16.07% |
+| Avg. CLV | \$822 |
+| Avg. ROI | 186% |
+| Avg. Profit Margin | 34.6% |
 
 ---
 
-## 📊 Key Insights & Visuals
+## 📊 Key Insights
 
 ### 1️⃣ Portfolio Overview
 - 16.1% attrition rate; majority are Blue cardholders.  
@@ -55,7 +72,21 @@ It combines **RFM segmentation, profitability analysis, clustering, and predicti
 | **Cannot Lose Them** | 1.3% | High churn (72%), urgent focus |
 
 ---
-## 🤖 Predictive Modeling – Churn Propensity
+## 🤖 Predictive Modeling 
+
+### 1. Customer Segmentation  
+Identified 8 segments using RFM and K-Means clustering:  
+- **Champions** 💎  
+- **Loyal Customers**  
+- **Potential Loyalists**  
+- **At Risk**  
+- **New Customers**  
+- **Hibernating**  
+- **Need Attention**  
+- **Lost**
+
+### 2. Churn Prediction  
+Built a **Random Forest Classifier** to predict churn probability:  
 
 | Metric | Score |
 |---------|--------|
@@ -70,7 +101,21 @@ It combines **RFM segmentation, profitability analysis, clustering, and predicti
 3. High Months Inactive  
 4. Low Credit Utilization
 
-## 💰 Profitability Analysis
+### 3. Customer Lifetime Value (CLV) Modeling  
+Estimated customer value using:  
+- 2.5% interchange fee on transactions  
+- 18% annual interest on revolving balances  
+- Segment-specific retention rates  
+
+| Segment | Avg CLV (\$) |
+|----------|--------------|
+| Champions | 1,450 |
+| Loyal Customers | 1,442 |
+| Potential Loyalists | 928 |
+| At Risk | 908 |
+| Hibernating | 466 |
+
+## 4. Profitability Analysis
 | Segment | Avg. Transaction Amt | Total Revenue ($) | Churn % |
 |----------|---------------------|------------------|---------|
 | Loyal Customers | 10,183 | **12.2M** | 2.1 |
@@ -88,8 +133,18 @@ It combines **RFM segmentation, profitability analysis, clustering, and predicti
 🔹 “Cannot Lose Them” have high credit limits but minimal engagement → targeted recovery needed.
 
 ---
+### 5. Profitability & ROI Analysis  
+Classified customers into **Platinum, Gold, Silver, Bronze, and Standard** tiers based on CLV.  
+Calculated **Net Profit, ROI, and Margin** for each segment.
 
-## 🔬 K-Means Cluster Analysis
+| Tier | Avg CLV | Avg ROI | Margin |
+|------|----------|----------|--------|
+| Platinum | \$1,949 | 211% | 34.6% |
+| Gold | \$1,315 | 186% | 31.7% |
+| Silver | \$942 | 155% | 28.2% |
+| Standard | \$200 | 76% | 17.4% |
+
+### 6. K-Means Cluster Analysis
 **Optimal K = 5 (Silhouette ≈ 0.20)**  
 Clusters were named as follows:
 
@@ -101,8 +156,18 @@ Clusters were named as follows:
 | 1 | 1,434 | 36 | 15 | **Low Engagement** |
 
 ---
+###  7. Customer Value Matrix (CLV × Churn Risk)
+Developed a strategic 2×2 matrix to guide portfolio strategy:
 
-## 🧭 Business Recommendations
+| Category | Description | Action |
+|-----------|--------------|---------|
+| High Value – Retain | Active & profitable | Loyalty programs, premium offers |
+| High Value – Win Back | Lost but valuable | Personalized retention campaigns |
+| Low Value – Grow | Stable, low engagement | Cross-sell or upgrade |
+| Low Value – Lost | Unprofitable, churned | Automated, low-cost communication |
+
+
+## 8. Business Recommendations
 | Segment | Suggested Action | Objective |
 |----------|------------------|------------|
 | **Champions / Loyal** | Offer tier upgrades, co-branded cards | Strengthen loyalty |
@@ -113,14 +178,14 @@ Clusters were named as follows:
 
 ---
 
-## 📈 Business Impact
+## 9. Business Impact
 - Enables **targeted retention** focusing on 40% of customers who drive 85% profit.  
 - Potential **profitability lift of 10–15%** through optimized customer engagement.  
 - Framework can be directly used by BIU for portfolio monitoring.
 
 ---
 
-## 🧰 Tools Used
+## 10. Tools Used
 Python, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn
 
 ---
