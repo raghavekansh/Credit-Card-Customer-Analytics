@@ -1,16 +1,7 @@
-# Streamlit and visualization
 streamlit==1.40.0
 plotly==5.24.0
-matplotlib==3.9.2
-
-# Data manipulation
 pandas==2.2.2
 numpy==1.26.4
-
-# Machine learning and scoring
 scikit-learn==1.5.2
-
-# Optional (smoother plots, caching)
+matplotlib==3.9.2
 seaborn==0.13.2
-cachetools==5.3.3
-altair==5.3.0
