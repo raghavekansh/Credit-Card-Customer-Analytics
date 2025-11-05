@@ -1,9 +1,8 @@
 # Credit-Card-Customer-Segmentation-Profitability-Analysis
 
-## 📌 Objective
-To identify key customer segments, measure profitability, and predict attrition risk for Bank’s credit card portfolio — enabling data-driven decision-making for retention and growth.
+🧩 Project Overview
 
----
+A data-driven analysis and predictive modeling system that segments credit card customers, analyzes profitability, and predicts churn using machine learning.
 
 ## 🗂️ Dataset
 **Source:** Kaggle – Credit Card Customers Dataset  
@@ -11,6 +10,15 @@ To identify key customer segments, measure profitability, and predict attrition 
 **Fields:** Demographics, income, card type, credit limit, transaction amount & frequency, inactivity, churn flag, etc.
 
 ---
+🎯 Objectives
+
+Perform RFM-based segmentation
+
+Analyze customer profitability by segment
+
+Build predictive model for churn (Random Forest)
+
+Derive actionable business insights for retention
 
 ## ⚙️ Methodology Overview
 | Stage | Description |
