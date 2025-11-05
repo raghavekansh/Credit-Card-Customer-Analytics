@@ -76,7 +76,7 @@ The goal is to help a bank identify **high-value, at-risk, and loyal customer se
 
 ### 1. Customer Segmentation  
 Identified 8 segments using RFM and K-Means clustering:  
-- **Champions** 💎  
+- **Champions** 
 - **Loyal Customers**  
 - **Potential Loyalists**  
 - **At Risk**  
